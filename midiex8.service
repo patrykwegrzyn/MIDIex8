@@ -1,0 +1,17 @@
+[Unit]
+Description=Midiex8 Firmware updater
+ConditionPathExists=/usr/bin/
+After=network.target
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/usr/bin/
+ExecStart=/usr/bin/midiex8
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=midiex8
+[Install]
+WantedBy=multi-user.target
